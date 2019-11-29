@@ -1,0 +1,35 @@
+drop table users
+drop table items
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) NOT NULL COMMENT '用户名称',
+	`password` varchar(32) NOT NULL COMMENT '密码',
+  `birthday` date DEFAULT NULL COMMENT '生日',
+  `sex` char(1) DEFAULT NULL COMMENT '性别',
+  `address` varchar(256) DEFAULT NULL COMMENT '地址',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+select*from users;
+
+
+CREATE TABLE `items` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) NOT NULL COMMENT '商品名称',
+  `price` float(10,1) NOT NULL COMMENT '商品定价',
+  `detail` text COMMENT '商品描述',
+  `pic` varchar(64) DEFAULT NULL COMMENT '商品图片',
+  `createtime` datetime NOT NULL COMMENT '生产日期',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+select*from items;
+
+
+insert into users values(default,'admin','admin',NOW(),'1','江西赣州');
+insert into users values(default,'xuguoguo','123456',NOW(),'1','江西赣州');
+
+
+insert into items values(default,'美女','1000.00','很漂亮','1.jpg','2017-12-14');
